@@ -1,0 +1,188 @@
+@mixin button-shadow() {
+  @include box-shadow(0, 1px, 2px, black(0.2));
+}
+@mixin button-hover() {
+  @include box-shadow(0, 5px, 10px, black(0.1));
+  @include transform(translateY(-2px));
+}
+
+.friday-buttons-container {
+  @include flex-center-vert;
+}
+.friday-buttons-container .friday-btn:not(:first-child) {
+  @include margin(0, 0, 0, 10px);
+}
+
+.friday-btn {
+  @include border-radius(50px);
+  @include transition();
+  @include margin(0, 0, 0, 0);
+  @include flex-center-vert;
+  text-transform: capitalize;
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+  .btn-icon{
+    @include margin(0, 12px, 0, 0);
+  }
+
+  @include breakpoint(ipadLandscape) {
+    font-weight: 400;
+  }
+
+}
+.friday-btn-lg {
+  @include padding(12px, 32px, 12px, 32px);
+  @include font-size(16px);
+
+  @include breakpoint(ipadLandscape) {
+    @include font-size(13px);
+  }
+
+  .btn-icon{
+    @include font-size(24px);
+  }
+
+
+}
+.friday-btn-md {
+  @include padding(10px, 24px, 10px, 24px);
+  @include font-size(14px);
+
+  @include breakpoint(ipadLandscape) {
+    @include padding(5px, 20px, 5px, 20px);
+    @include font-size(12px);
+  }
+
+  .btn-icon{
+    @include font-size(20px);
+  }
+
+}
+.friday-btn-sm {
+  @include padding(6px, 18px, 6px, 18px);
+  @include font-size(13px);
+
+  @include breakpoint(ipadLandscape) {
+    @include font-size(10px);
+  }
+
+  .btn-icon{
+    @include font-size(16px);
+  }
+}
+
+/* primary */
+.friday-btn-primary {
+  background: $brand-color;
+  color: $white-color;
+  &:hover {
+    background: $brand-hover-color;
+    color: $white-color;
+  }
+  &:active {
+    background: $brand-active-color;
+  }
+}
+
+/* secondary */
+.friday-btn-secondary {
+  background: $secondary-color;
+  color: $second-grey-color;
+  &:hover {
+    background: $secondary-hover-color;
+    color: $second-grey-color;
+  }
+  &:active {
+    background: $secondary-active-color;
+  }
+}
+
+/* highlight */
+.friday-btn-highlight {
+  background: $secondary-color;
+  color: $brand-hover-color;
+  font-weight: 700;
+  &:hover {
+    background: $secondary-hover-color;
+    color: $brand-hover-color;
+  }
+  &:active {
+    background: $secondary-active-color;
+  }
+}
+
+/* delete */
+.friday-btn-delete {
+  background: $delete-color;
+  color: $white-color;
+  &:hover {
+    background: $delete-hover-color;
+    color: $white-color;
+  }
+  &:active {
+    background: $delete-active-color;
+  }
+}
+
+/* outline primary */
+.friday-btn-outline-primary {
+  border: 2px solid $brand-color;
+  color: $brand-color;
+  background: none;
+  &:hover {
+    background: $brand-color;
+    color: $white-color;
+  }
+  &:active {
+    background: $brand-active-color;
+  }
+}
+
+/* outline Secondary */
+.friday-btn-outline-secondary {
+  border: 2px solid $secondary-color;
+  color: $second-grey-color;
+  background: none;
+  &:hover {
+    background: $secondary-hover-color;
+    color: $second-grey-color;
+  }
+  &:active {
+    background: $secondary-active-color;
+  }
+}
+
+/* outline white */
+.friday-btn-outline-white {
+  border: 2px solid $white-color;
+  color: $white-color;
+  background: none;
+  &:hover {
+    background: $white-color;
+    color: $brand-color;
+  }
+}
+
+.friday-btn-text-white {
+  color: $white-color;
+  &:hover {
+    background: $white-color;
+    color: $brand-color;
+  }
+}
+
+.friday-btn-text-primary {
+  color: $brand-color;
+  &:hover {
+    background: $white-color;
+    color: $brand-color;
+  }
+}
+
+.friday-btn-text-grey {
+  color: $dark-grey-color;
+  &:hover {
+    background: $white-color;
+    color: $brand-color;
+  }
+}

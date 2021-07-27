@@ -1,0 +1,361 @@
+@import "../../../assets/scss/layout", "../../../assets/scss/variables", "../../../assets/scss/mixins";
+
+//SIDEBAR
+#friday-sidebar {
+  width: 85px;
+  background: $white-color;
+  color: $white-color;
+  position: relative;
+  top: 72px;
+  z-index: 2;
+  height: 100%;
+  /*  height: calc(100vh - 53px);
+  @include box-shadow(0, 0px, 6px, black(0.1)); */
+  @include transition();
+
+  @include breakpoint(lp) {
+    width: 70px;
+    top: 52px;
+  }
+  @include breakpoint(ipadLandscape) {
+    width: 50px;
+    top: 40px;
+  }
+
+  @include breakpoint(sm) {
+    position: absolute;
+  }
+
+  .burger-menu-wrap {
+    display: inline-block;
+    position: fixed;
+    bottom: 18px;
+    left: 18px;
+    z-index: 1;
+
+    @include breakpoint(ipadLandscape) {
+      left: 13px;
+    }
+
+    /* Burger menu */
+    .burger-menu {
+      cursor: pointer;
+      position: relative;
+      z-index: 99;
+      width: 36px;
+      height: 36px;
+      background: $secondary-color;
+      @include border-radius(50%);
+      @include transition();
+
+      @include breakpoint(ipadLandscape) {
+        width: 24px;
+        height: 24px;
+      }
+
+      &:hover {
+        background: $secondary-hover-color;
+      }
+      &:active {
+        background: $secondary-active-color;
+      }
+
+      &:before,
+      &:after,
+      span {
+        height: 4px;
+        display: block;
+        background: $third-grey-color;
+        position: absolute;
+        opacity: 1;
+        @include transition();
+
+        @include breakpoint(ipadLandscape) {
+          height: 2px;
+        }
+      }
+
+      &:before {
+        top: 13px;
+        content: "";
+        width: 10px;
+        transform: rotate(45deg);
+        right: 9px;
+
+        @include breakpoint(ipadLandscape) {
+          width: 5px;
+          top: 9px;
+          right: 7px;
+        }
+      }
+      span {
+        width: 17px;
+        left: 50%;
+        transform: translate(-50%);
+        top: 16px;
+
+        @include breakpoint(ipadLandscape) {
+          width: 10px;
+          top: 11px;
+        }
+      }
+      &:after {
+        top: 19px;
+        content: "";
+        width: 10px;
+        transform: rotate(-45deg);
+        right: 9px;
+        @include breakpoint(ipadLandscape) {
+          width: 5px;
+          top: 13px;
+          right: 7px;
+        }
+      }
+    }
+  }
+
+  &.active {
+    width: 380px;
+
+    @include breakpoint(lp) {
+      width: 300px;
+    }
+    @include breakpoint(ipadLandscape) {
+      width: 200px;
+    }
+
+    .burger-menu {
+      &:before {
+        right: 17px !important;
+        transform: rotate(-45deg) !important;
+
+        @include breakpoint(ipadLandscape) {
+          right: 12px !important;
+        }
+      }
+      &:after {
+        right: 17px !important;
+        transform: rotate(45deg) !important;
+        @include breakpoint(ipadLandscape) {
+          right: 12px !important;
+        }
+      }
+    }
+    .friday-sidebar-inner {
+      width: 380px;
+
+      @include breakpoint(lp) {
+        width: 300px;
+      }
+      @include breakpoint(ipadLandscape) {
+        width: 200px;
+      }
+
+      ul {
+        li {
+          a {
+            .menu-text {
+              opacity: 1;
+              visibility: visible;
+            }
+          }
+        }
+      }
+
+      .second-level-menu {
+        left: 380px !important;
+
+        @include breakpoint(lp) {
+          left: 300px !important;
+        }
+        @include breakpoint(ipadLandscape) {
+          left: 200px !important;
+        }
+      }
+    }
+  }
+
+  .friday-sidebar-inner {
+    position: fixed;
+    width: 85px;
+    background: $white-color;
+    height: 100%;
+    @include box-shadow(0, 0px, 6px, black(0.1));
+    @include transition();
+    @include padding(20px, 0, 30px, 0);
+    @include scrollbars(3px, $secondary-color, transparent);
+    overflow-y: auto;
+
+    @include breakpoint(lp) {
+      width: 70px;
+      @include padding(20px, 0, 30px, 0);
+    }
+    @include breakpoint(ipadLandscape) {
+      width: 50px;
+      @include padding(10px, 0, 10px, 0);
+    }
+
+    ul {
+      li {
+        a {
+          @include padding(20px, 20px, 20px, 25px);
+          /*  @include transition(); */
+          @include font-size(16px);
+          color: #7d7d7d;
+          position: relative;
+          font-weight: 700;
+          display: flex;
+          align-items: center;
+          text-transform: capitalize;
+          position: relative;
+
+          @include breakpoint(lp) {
+            @include padding(10px, 20px, 10px, 20px);
+            @include font-size(14px);
+          }
+
+          @include breakpoint(ipadLandscape) {
+            @include padding(5px, 20px, 5px, 15px);
+            @include font-size(9px);
+          }
+
+          .wrap-icon {
+            height: 30px;
+            @include margin(0, 20px, 0, 0);
+            @include flex-center;
+
+            @include breakpoint(lp) {
+              @include margin(0, 10px, 0, 0);
+            }
+            @include breakpoint(ipadLandscape) {
+              @include margin(0, 5px, 0, 0);
+            }
+
+            .material-icons-outlined {
+              @include font-size(32px);
+              @include breakpoint(lp) {
+                @include font-size(28px);
+              }
+              @include breakpoint(ipadLandscape) {
+                @include font-size(18px);
+              }
+            }
+          }
+          .menu-text {
+            @include transition();
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+          }
+          &:hover {
+            color: $white-color;
+            background: $brand-color;
+            &::before {
+              width: 100%;
+            }
+            .second-level-menu {
+              height: calc(100vh - 50px);
+              opacity: 10;
+              /* visibility: visible; */
+              display: block;
+            }
+            .toggle-arrow {
+              display: block;
+            }
+          }
+          &.active {
+            &::before {
+              width: 100%;
+            }
+            a {
+              color: #505050;
+            }
+          }
+
+          .toggle-arrow {
+            display: none;
+            position: absolute;
+            right: -17px;
+            top: 50%;
+            @include font-size(40px);
+            transform: translateY(-50%);
+
+            @include breakpoint(ipadLandscape) {
+              @include font-size(30px);
+              right: -12px;
+            }
+          }
+
+          .second-level-menu {
+            display: none;
+            position: fixed;
+            background: $white-color;
+            left: 85px;
+            height: 0;
+            opacity: 0;
+            width: 300px;
+            top: 72px;
+            z-index: 1099;
+            @include transition();
+            @include padding(20px, 10px, 10px, 0);
+            @include box-shadow(0, 0px, 6px, black(0.1));
+
+            @include breakpoint(lp) {
+              top: 52px;
+              left: 70px;
+            }
+            @include breakpoint(ipadLandscape) {
+              top: 40px;
+              left: 48px;
+              width: 200px;
+            }
+
+            ul {
+              height: 100%;
+              @include padding(0, 10px, 0, 10px);
+              @include scrollbars(3px, $secondary-color, transparent);
+              overflow-y: auto;
+
+              li {
+                @include margin(0, 0, 10px, 0);
+
+                @include breakpoint(lp) {
+                  @include margin(0, 0, 5px, 0);
+                }
+
+                @include breakpoint(ipadLandscape) {
+                  @include margin(0, 0, 5px, 0);
+                }
+
+                a {
+                  @include padding(8px, 10px, 8px, 10px);
+                  @include font-size(15px);
+                  font-weight: 500;
+                  @include border-radius(3px);
+
+                  @include breakpoint(lp) {
+                    @include font-size(13px);
+                    @include padding(8px, 10px, 8px, 10px);
+                  }
+
+                  @include breakpoint(ipadLandscape) {
+                    @include font-size(10px);
+                    @include padding(5px, 10px, 5px, 10px);
+                  }
+
+                  &:hover {
+                    @include padding(8px, 10px, 8px, 15px);
+
+                    @include breakpoint(ipadLandscape) {
+                      @include padding(5px, 10px, 5px, 15px);
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,182 @@
+@import "../../../assets/scss/layout", "../../../assets/scss/variables", "../../../assets/scss/mixins";
+
+@mixin navbar-shadow() {
+  @include box-shadow(0, 3px, 6px, black(0.1));
+}
+
+.friday-navbar {
+  background: $brand-color;
+  position: fixed;
+  height: 72px;
+  width: 100%;
+  z-index: 1001;
+
+  @include breakpoint(lp) {
+    height: 52px;
+  }
+  @include breakpoint(ipadLandscape) {
+    height: 40px;
+  }
+
+  @include navbar-shadow();
+  @include padding(0, 0, 0, 0);
+
+  .friday-logo-holder {
+    @include margin(0, 30px, 0, 0);
+
+    @include breakpoint(lp) {
+      @include margin(0, 20px, 0, 0);
+    }
+
+    @include breakpoint(ipadLandscape) {
+      @include margin(0, 10px, 0, 0);
+    }
+
+    .friday-logo {
+      width: 94px;
+      height: 43px;
+      display: block;
+      background: url(../../../assets/images/logo-white.png) center center no-repeat;
+      background-size: 94px 43px;
+      @include breakpoint(lp) {
+        width: 74px;
+        height: 36px;
+        background-size: 74px 36px;
+      }
+      @include breakpoint(ipadLandscape) {
+        width: 54px;
+        height: 26px;
+        background-size: 54px 26px;
+      }
+    }
+  }
+
+  .nav-item {
+    @include margin(0, 0, 0, 0);
+    .nav-link {
+      background: (white(0.1));
+      width: 32px;
+      height: 32px;
+      text-align: center;
+      position: relative;
+      color: $white-color;
+      @include flex-center;
+      @include border-radius(5px);
+      @include transition();
+
+      @include breakpoint(ipadLandscape) {
+        width: 24px;
+        height: 24px;
+      }
+
+      &:active {
+        background: white(0.6);
+      }
+      &:hover {
+        background: white(0.3);
+      }
+
+      .number {
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        background: $white-color;
+        color: $brand-color;
+        border: 1px solid $brand-color;
+        @include font-size(10px);
+        font-weight: 700;
+        top: 3px;
+        right: 3px;
+        @include border-radius(50%);
+        display: block;
+        text-align: center;
+        line-height: 16px;
+
+        @include breakpoint(ipadLandscape) {
+         line-height: 12px;
+         width: 12px;
+         height: 12px;
+         @include font-size(7px);
+        }
+      }
+      .user-avatar-holder {
+        /*  width: 30px;
+        height: 30px;
+        overflow: hidden; */
+        @include border-radius(50%);
+        img {
+          width: 35px;
+          height: 35px;
+          @include border-radius(50%);
+        }
+      }
+    }
+  }
+
+  .no-toggle-arrow {
+    &:after {
+      background: none;
+      border: 0;
+      @include margin(0, 0, 0, 0);
+    }
+  }
+}
+
+.friday-navbar .nav-item:not(:last-child) {
+  @include margin(0, 8px, 0, 0);
+}
+.main-search-container {
+  position: relative;
+  width: 30%;
+
+  .search-icon {
+    background: url(../../../assets/images/search-icon.svg) no-repeat center;
+    position: absolute;
+    left: 7px;
+    top: 8px;
+    display: block;
+    width: 25px;
+    height: 25px;
+    background-size: 25px 25px;
+
+    @include breakpoint(lp) {
+      left: 5px;
+      top: 5px;
+    }
+    @include breakpoint(ipadLandscape) {
+      left: 6px;
+      top: 4px;
+      width: 16px;
+      height: 16px;
+      background-size: 16px 16px;
+    }
+  }
+  .search-input-control {
+    background: white(0.2);
+    height: 40px;
+    width: 100%;
+    color: $white-color;
+    @include border-radius(50px);
+    @include font-size(14px);
+    @include padding(0, 15px, 0, 35px);
+    @include transition();
+
+    @include input-placeholder {
+      color: white(0.7);
+    }
+
+    @include breakpoint(lp) {
+      height: 34px;
+      @include font-size(13px);
+    }
+    @include breakpoint(ipadLandscape) {
+      height: 25px;
+      @include font-size(11px);
+      @include padding(0, 15px, 0, 25px);
+    }
+
+    &:focus {
+      background: white(0.3);
+    }
+  }
+}

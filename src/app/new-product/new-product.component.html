@@ -1,0 +1,595 @@
+<header class="friday-page-header">
+  <div class="friday-page-header__body">
+    <div>
+      <div class="d-flex align-items-center">
+        <a routerLink="/products" class="circle-icon-secondary me-2">
+          <span class="material-icons-outlined">
+            west
+          </span>
+        </a>
+        <h1 class="friday-page-header__title">New Product</h1>
+      </div>
+      <p class="friday-page-header__sub-title">Add, view and edit your products all in one place.</p>
+    </div>
+  </div>
+</header>
+
+
+<div class="friday-links-container">
+  <a href="" class="friday-link-secondary">
+    <span class="link-text">Edit</span>
+  </a>
+  <a href="" class="friday-link-secondary">
+    <span class="link-text">Delete</span>
+  </a>
+  <a href="" class="friday-link-secondary">
+    <span class="link-text">Price History</span>
+  </a>
+  <a href="" class="friday-link-secondary">
+    <span class="link-text">Upload to Excel</span>
+  </a>
+  <a href="" class="friday-link-secondary">
+    <span class="link-text">Import to Excel</span>
+  </a>
+  <a href="" class="friday-link-secondary">
+    <span class="link-text">Download from Excel</span>
+  </a>
+</div>
+
+<div class="friday-card card-shadow-1 border-radius-10 mb-4">
+  <div class="friday-card-header">
+    <h2 class="friday-card-title">General</h2>
+    <div class="friday-icons-container">
+      <button class="icon-wrap circle-icon-transparent">
+        <span class="material-icons-outlined">
+          delete
+        </span>
+
+      </button>
+      <button class="icon-wrap circle-icon-transparent" data-bs-toggle="modal" data-bs-target="#custom-modal">
+        <span class="material-icons-outlined">
+          edit
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <div class="friday-card-body">
+    <div class="form-group">
+      <div class="row">
+        <label class="col-lg-2 col-md-4 col-form-label">Product Name</label>
+        <div class="col-lg-4 col-md-5 col-xxl-3">
+          <div class="friday-input-container">
+            <input type="text" class="form-control">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="row">
+        <label class="col-lg-2 col-md-4 col-form-label">Product Code </label>
+        <div class="col-lg-4 col-md-5 col-xxl-3">
+          <ng-multiselect-dropdown [settings]="dropdownSettings" [data]="dropdownList" [(ngModel)]="selectedItems"
+            (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)">
+          </ng-multiselect-dropdown>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <label class="col-lg-2 col-md-4 col-form-label">Product Code </label>
+        <div class="col-lg-4 col-md-5 col-xxl-3">
+          <div class="friday-input-container">
+            <input type="text" class="form-control">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <label class="col-lg-2 col-md-4 col-form-label">Product Model</label>
+        <div class="col-lg-4 col-md-5 col-xxl-3">
+          <div class="friday-select-dropdown">
+            <ng-select>
+              <ng-option *ngFor="let country of countries">{{country.name}}</ng-option>
+            </ng-select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <label class="col-lg-2 col-md-4 col-form-label">Product Type</label>
+        <div class="col-lg-4 col-md-5 col-xxl-3">
+          <div class="friday-select-dropdown">
+            <ng-select>
+              <ng-option *ngFor="let country of countries">{{country.name}}</ng-option>
+            </ng-select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <label class="col-lg-2 col-md-4 col-form-label">Item Group</label>
+        <div class="col-lg-4 col-md-5 col-xxl-3">
+          <div class="friday-select-dropdown">
+            <ng-select>
+              <ng-option *ngFor="let country of countries">{{country.name}}</ng-option>
+            </ng-select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <label class="col-lg-2 col-md-4 col-form-label">Retail Category</label>
+        <div class="col-lg-4 col-md-5 col-xxl-3">
+          <div class="friday-select-dropdown">
+            <ng-select>
+              <ng-option *ngFor="let country of countries">{{country.name}}</ng-option>
+            </ng-select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <label class="col-lg-2 col-md-4 col-form-label">Procurement Category</label>
+        <div class="col-lg-4 col-md-5 col-xxl-3">
+          <div class="friday-select-dropdown">
+            <ng-select>
+              <ng-option *ngFor="let country of countries">{{country.name}}</ng-option>
+            </ng-select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <label class="col-lg-2 col-md-4 col-form-label">Auxiliary Category</label>
+        <div class="col-lg-4 col-md-5 col-xxl-3">
+          <div class="friday-select-dropdown">
+            <ng-select>
+              <ng-option *ngFor="let country of countries">{{country.name}}</ng-option>
+            </ng-select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="row">
+        <label class="col-lg-2 col-md-4 col-form-label"></label>
+        <div class="col-lg-4 col-md-5 col-xxl-3">
+          <div class="friday-checkboxes">
+            <input class="form-check-input" type="checkbox" id="remember-3" name="checkbox-3">
+            <label for="remember-3" class="form-check-label">Auxiliarary Category</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div class="form-group">
+      <div class="row">
+        <label class="col-lg-2 col-md-4 col-form-label">Upload Image</label>
+        <div class="col-lg-4 col-md-5 col-xxl-3">
+          <form>
+            <div class="file-upload-wrapper" data-text="No File Choosen">
+              <input name="file-upload-field" type="file" class="file-upload-field" value="">
+            </div>
+            <p>Only Jpej, PNG, PDF, ppt</p>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="friday-card card-shadow-1 border-radius-10 mb-4">
+  <div class="friday-card-header">
+    <h2 class="friday-card-title">Purchase</h2>
+    <div class="friday-icons-container">
+      <button class="icon-wrap circle-icon-transparent">
+        <span class="material-icons-outlined">
+          delete
+        </span>
+      </button>
+      <button class="icon-wrap circle-icon-transparent" data-bs-toggle="modal" data-bs-target="#custom-modal">
+        <span class="material-icons-outlined">
+          edit
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <div class="friday-card-body">
+    <div class="form-group">
+      <div class="row">
+        <label class="col-lg-2 col-md-4 col-form-label">Purchase Unit
+        </label>
+        <div class="col-lg-4 col-md-5 col-xxl-3">
+          <div class="friday-select-dropdown">
+            <ng-select>
+              <ng-option *ngFor="let country of countries">{{country.name}}</ng-option>
+            </ng-select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="row">
+        <label class="col-lg-2 col-md-4 col-form-label">Purchase Sales Tax Group</label>
+        <div class="col-lg-4 col-md-5 col-xxl-3">
+          <div class="friday-select-dropdown">
+            <ng-select>
+              <ng-option *ngFor="let country of countries">{{country.name}}</ng-option>
+            </ng-select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <label class="col-lg-2 col-md-4 col-form-label">Base Purchase Price
+        </label>
+        <div class="col-lg-4 col-md-5 col-xxl-3">
+          <div class="friday-input-container">
+            <input type="text" class="form-control">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <label class="col-lg-2 col-md-4 col-form-label">Latest Purchase Price</label>
+        <div class="col-lg-4 col-md-5 col-xxl-3">
+          <div class="friday-input-container">
+            <input type="text" class="form-control">
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <div class="row">
+        <label class="col-lg-2 col-md-4 col-form-label">Charges Group
+        </label>
+        <div class="col-lg-4 col-md-5 col-xxl-3">
+          <div class="friday-select-dropdown">
+            <ng-select>
+              <ng-option *ngFor="let country of countries">{{country.name}}</ng-option>
+            </ng-select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <label class="col-lg-2 col-md-4 col-form-label">Price Group
+        </label>
+        <div class="col-lg-4 col-md-5 col-xxl-3">
+          <div class="friday-select-dropdown">
+            <ng-select>
+              <ng-option *ngFor="let country of countries">{{country.name}}</ng-option>
+            </ng-select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="friday-card card-shadow-1 border-radius-10 mb-4">
+  <div class="friday-card-header">
+    <h2 class="friday-card-title">Sell</h2>
+    <div class="friday-icons-container">
+      <button class="icon-wrap circle-icon-transparent">
+        <span class="material-icons-outlined">
+          delete
+        </span>
+      </button>
+      <button class="icon-wrap circle-icon-transparent" data-bs-toggle="modal" data-bs-target="#custom-modal">
+        <span class="material-icons-outlined">
+          edit
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <div class="friday-card-body">
+    <div class="form-group">
+      <div class="row">
+        <label class="col-lg-2 col-md-4 col-form-label">Sales Unit</label>
+        <div class="col-lg-4 col-md-5 col-xxl-3">
+          <div class="friday-select-dropdown">
+            <ng-select>
+              <ng-option *ngFor="let country of countries">{{country.name}}</ng-option>
+            </ng-select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="row">
+        <label class="col-lg-2 col-md-4 col-form-label">Tax Group</label>
+        <div class="col-lg-4 col-md-5 col-xxl-3">
+          <div class="friday-select-dropdown">
+            <ng-select>
+              <ng-option *ngFor="let country of countries">{{country.name}}</ng-option>
+            </ng-select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <label class="col-lg-2 col-md-4 col-form-label">Base Selling Price
+
+        </label>
+        <div class="col-lg-4 col-md-5 col-xxl-3">
+          <input type="text" class="form-control" placeholder="Enter Name">
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <label class="col-lg-2 col-md-4 col-form-label">Latest Selling Price
+        </label>
+        <div class="col-lg-4 col-md-5 col-xxl-3">
+          <div class="friday-input-container">
+            <input type="text" class="form-control">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="row">
+        <label class="col-lg-2 col-md-4 col-form-label">Charges Group
+        </label>
+        <div class="col-lg-4 col-md-5 col-xxl-3">
+          <div class="friday-select-dropdown">
+            <ng-select>
+              <ng-option *ngFor="let country of countries">{{country.name}}</ng-option>
+            </ng-select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <label class="col-lg-2 col-md-4 col-form-label">Price Group
+        </label>
+        <div class="col-lg-4 col-md-5 col-xxl-3">
+          <div class="friday-select-dropdown">
+            <ng-select>
+              <ng-option *ngFor="let country of countries">{{country.name}}</ng-option>
+            </ng-select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="friday-card card-shadow-1 border-radius-10 mb-4">
+  <div class="friday-card-header">
+    <h2 class="friday-card-title">Inventory
+    </h2>
+    <div class="friday-icons-container">
+      <button class="icon-wrap circle-icon-transparent">
+        <span class="material-icons-outlined">
+          delete
+        </span>
+      </button>
+      <button class="icon-wrap circle-icon-transparent" data-bs-toggle="modal" data-bs-target="#custom-modal">
+        <span class="material-icons-outlined">
+          edit
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <div class="friday-card-body">
+    <div class="form-group">
+      <div class="row">
+        <label class="col-lg-2 col-md-4 col-form-label">Inventory Unit</label>
+        <div class="col-lg-4 col-md-5 col-xxl-3">
+          <div class="friday-select-dropdown">
+            <ng-select>
+              <ng-option *ngFor="let country of countries">{{country.name}}</ng-option>
+            </ng-select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <label class="col-lg-2 col-md-4 col-form-label">Base Cost Price</label>
+        <div class="col-lg-4 col-md-5 col-xxl-3">
+          <div class="friday-input-container">
+            <input type="text" class="form-control">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <label class="col-lg-2 col-md-4 col-form-label">Latest Cost Price
+        </label>
+        <div class="col-lg-4 col-md-5 col-xxl-3">
+          <div class="friday-input-container">
+            <input type="text" class="form-control">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <label class="col-lg-2 col-md-4 col-form-label">Inventory Valuation
+        </label>
+        <div class="col-lg-4 col-md-5 col-xxl-3">
+          <div class="friday-select-dropdown">
+            <ng-select>
+              <ng-option *ngFor="let country of countries">{{country.name}}</ng-option>
+            </ng-select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <label class="col-lg-2 col-md-4 col-form-label">Product Classification
+        </label>
+        <div class="col-lg-4 col-md-5 col-xxl-3">
+          <div class="friday-select-dropdown">
+            <ng-select>
+              <ng-option *ngFor="let country of countries">{{country.name}}</ng-option>
+            </ng-select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <label class="col-lg-2 col-md-4 col-form-label">Counting Interval</label>
+        <div class="col-lg-4 col-md-5 col-xxl-3">
+          <div class="friday-select-dropdown">
+            <ng-select>
+              <ng-option *ngFor="let country of countries">{{country.name}}</ng-option>
+            </ng-select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <label class="col-lg-2 col-md-4 col-form-label">Minmum Quantity for Reserving Inventory on POS</label>
+        <div class="col-lg-4 col-md-5 col-xxl-3">
+          <div class="friday-input-container">
+            <input type="text" class="form-control">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="friday-card card-shadow-1 border-radius-10">
+  <div class="friday-card-header">
+    <h2 class="friday-card-title">Retail
+    </h2>
+    <div class="friday-icons-container">
+      <button class="icon-wrap circle-icon-transparent">
+        <span class="material-icons-outlined">
+          delete
+        </span>
+      </button>
+      <button class="icon-wrap circle-icon-transparent" data-bs-toggle="modal" data-bs-target="#custom-modal">
+        <span class="material-icons-outlined">
+          edit
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <div class="friday-card-body">
+    <div class="form-group">
+      <div class="row">
+        <label class="col-lg-2 col-md-4 col-form-label">Blocked At Register</label>
+        <div class="col-lg-4 col-md-5 col-xxl-3">
+          <div class="switch-container">
+            <input class="friday-switch" type="checkbox" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="custom-modal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content friday-modal">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="circle-icon-secondary" data-bs-dismiss="modal">
+          <span class="material-icons-outlined">
+            close
+          </span>
+        </button>
+      </div>
+      <div class="modal-body friday-modal-body">
+        <div class="form-group">
+          <div class="row">
+            <label class="col-lg-3 col-md-4 col-form-label">Product Name</label>
+            <div class="col-lg-6 col-md-6">
+              <div class="friday-input-container">
+                <input type="text" class="form-control">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <label class="col-lg-3 col-md-4 col-form-label">Product Code </label>
+            <div class="col-lg-6 col-md-6">
+              <div class="friday-input-container">
+                <input type="text" class="form-control">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <label class="col-lg-3 col-md-4 col-form-label">Product Model</label>
+            <div class="col-lg-6 col-md-6">
+              <div class="friday-select-dropdown">
+                <ng-select>
+                  <ng-option *ngFor="let country of countries">{{country.name}}</ng-option>
+                </ng-select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <label class="col-lg-3 col-md-4 col-form-label">Payment Schedule?</label>
+            <div class="col-lg-6 col-md-6">
+              <div class="switch-container">
+                <input class="friday-switch" type="checkbox" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <div class="friday-buttons-container">
+          <button class="friday-btn friday-btn-outline-secondary friday-btn-md" data-bs-dismiss="modal">
+            <span class="btn-text">cancel</span>
+          </button>
+          <button class="friday-btn friday-btn-secondary friday-btn-md">
+            <span class="btn-text">save draft</span>
+          </button>
+          <button class="friday-btn friday-btn-primary friday-btn-md">
+            <span class="btn-text">submit</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
